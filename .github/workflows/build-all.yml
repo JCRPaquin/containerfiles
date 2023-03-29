@@ -9,10 +9,12 @@ jobs:
       build_dir: ./colmap/
   build-hloc:
     uses: ./.github/workflows/package-containers.yml
+    needs: build-colmap
     with:
       build_dir: ./hloc/
   build-pixsfm:
     uses: ./.github/workflows/package-containers.yml
+    needs: build-hloc
     with:
       build_dir: ./pixel-perfect-sfm/
 
