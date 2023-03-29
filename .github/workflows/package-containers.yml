@@ -39,4 +39,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
+          context: ${{ inputs.build_dir }}
           tags: ${{ steps.org-name.outputs.ORGNAME }}/${{ steps.img-name.outputs.result }}
