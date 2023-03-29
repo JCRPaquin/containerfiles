@@ -29,15 +29,11 @@ jobs:
         id: org-name
         run: echo ${{ env.GITHUB_ACTION_REPOSITORY }} | awk -F / '{ print $1 }'
 
-      - name: Don't have time
-        id: for-this
-        run: echo "${{ github.event.inputs.build_dir }}"
-
       - name: Get image name
         id: img-name
         uses: mikefarah/yq@master
         with:
-          cmd: yq '.tag' '${{ github.event.inputs.build_dir }}/info.yml'
+          cmd: yq '.tag' '${{ inputs.build_dir }}/info.yml'
 
       - name: Build and push image
         uses: docker/build-push-action@v4
