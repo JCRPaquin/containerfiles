@@ -27,7 +27,7 @@ jobs:
 
       - name: Get org name
         id: org-name
-        run: echo ${{ env.GITHUB_ACTION_REPOSITORY }} | awk -F / '{ print $1 }'
+        run: echo ${{ github.GITHUB_ACTION_REPOSITORY }} | awk -F / '{ print $1 }'
 
       - name: Get image name
         id: img-name
