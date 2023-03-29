@@ -29,6 +29,10 @@ jobs:
         id: org-name
         run: echo ${{ env.GITHUB_ACTION_REPOSITORY }} | awk -F / '{ print $1 }'
 
+      - name: Don't have time
+        id: for-this
+        run: echo "${{ github.event.inputs.build_dir }}"
+
       - name: Get image name
         id: img-name
         uses: mikefarah/yq@master
