@@ -33,7 +33,7 @@ jobs:
         id: img-name
         uses: mikefarah/yq@master
         with:
-          cmd: yq '.tag' ${{ github.event.inputs.build_dir }}/info.yml
+          cmd: yq '.tag' '${{ github.event.inputs.build_dir }}/info.yml'
 
       - name: Build and push image
         uses: docker/build-push-action@v4
