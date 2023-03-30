@@ -2,6 +2,10 @@ name: Build All Containers
 run-name: Build all container images in repository using dev branch
 on: [push]
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-colmap:
     uses: ./.github/workflows/package-containers.yml
